@@ -1,8 +1,31 @@
-using System;
+using System.Reactive;
+using ReactiveUI;
+using SimpleToDo.Models;
 
 namespace SimpleToDo.ViewModels;
 
 public class AddItemViewModel : ViewModelBase
 {
-    public string Description { get; set; } = string.Empty;
+    private string? _description;
+
+    public AddItemViewModel()
+    {
+        var okEnabled = this.WhenAnyValue(
+            vm => vm.Description,
+            string.IsNullOrEmpty);
+
+        OkCommand = ReactiveCommand.Create(
+            () => new ToDoItem { Description = Description! },
+            okEnabled);
+        CancelCommand = ReactiveCommand.Create(() => { });
+    }
+
+    public ReactiveCommand<Unit, ToDoItem> OkCommand { get; }
+    public ReactiveCommand<Unit, Unit> CancelCommand { get; }
+
+    public string? Description
+    {
+        get => _description;
+        set => this.RaiseAndSetIfChanged(ref _description, value);
+    }
 }
