@@ -12,7 +12,7 @@ public class AddItemViewModel : ViewModelBase
     {
         var okEnabled = this.WhenAnyValue(
             vm => vm.Description,
-            string.IsNullOrEmpty);
+            description => !string.IsNullOrEmpty(description));
 
         OkCommand = ReactiveCommand.Create(
             () => new ToDoItem { Description = Description! },
