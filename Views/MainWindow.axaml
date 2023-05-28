@@ -1,4 +1,5 @@
 <Window
+    Content="{Binding List}"
     Icon="/Assets/avalonia-logo.ico"
     Title="SimpleToDo"
     d:DesignHeight="450"
@@ -10,11 +11,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:SimpleToDo.ViewModels"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
-    <Design.DataContext>
-        <vm:MainWindowViewModel />
-    </Design.DataContext>
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" />
 
 
-</Window>
+
+
