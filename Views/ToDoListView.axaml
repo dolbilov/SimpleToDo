@@ -11,9 +11,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <DockPanel>
         <Button
+            Command="{ReflectionBinding $parent[Window].DataContext.AddItem}"
             Content="Add an item"
             DockPanel.Dock="Bottom"
             HorizontalAlignment="Center" />
+
         <ItemsControl ItemsSource="{Binding Items}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
