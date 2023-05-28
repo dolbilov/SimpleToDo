@@ -1,4 +1,5 @@
 <Window
+    CanResize="False"
     Content="{Binding Content}"
     Height="250"
     Icon="/Assets/avalonia-logo.ico"
